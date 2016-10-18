@@ -11,25 +11,33 @@ import org.zerock.domain.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
-		@Inject
+	
+	@Inject
 	private SqlSession sqlSession;
+
 	private static final String namespace =
 			"org.zerock.mapper.MemberMapper";
+
 	@Override
 	public String getTime() {
 
 		return sqlSession.selectOne(namespace+".getTime");
 	}
 
+
 	@Override
 	public void insertMember(MemberVO vo) {
 		sqlSession.insert(namespace+".insertMember", vo);
 	}
+
+
 	@Override
 	public MemberVO readMember(String userid) throws Exception {
 		return (MemberVO) 
 				sqlSession.selectOne(namespace+".selectMember", userid);
 	}
+
+
 	@Override
 	public MemberVO readWithPW(String userid, String pw) throws Exception {
 		
@@ -40,6 +48,7 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return sqlSession.selectOne(namespace+".readWithPW", paramMap);
 	}
+
 }
 
 

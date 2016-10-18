@@ -10,11 +10,11 @@ public class MySQLConnectionTest {
 	private static final String DRIVER = 
 			"com.mysql.jdbc.Driver";
 	private static final String URL = 
-			"jdbc:mysql://127.0.0.1:3306/201212767_ex1";
+			"jdbc:mysql://127.0.0.1:3306/book_ex";
 	private static final String USER = 
-			"201212767";
+			"zerock";
 	private static final String PW = 
-			"201212767";
+			"zerock";
 			
 	
 	@Test
@@ -25,7 +25,7 @@ public class MySQLConnectionTest {
 		try(Connection con = DriverManager.getConnection(URL, USER, PW)){
 			
 			System.out.println(con);
-			System.out.println("201212767");
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
